@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OrdenarFast
+﻿namespace OrdenarFast
 {
     internal class Algoritmos
     {
@@ -105,7 +99,7 @@ namespace OrdenarFast
         {
             compar++;
             l3.Text = "Comparações: " + compar.ToString();
-            if (compar % 100 == 0) 
+            if (compar % 100 == 0)
             {
                 l3.Refresh();
                 Dispara(new EventArgs());
@@ -1279,6 +1273,68 @@ namespace OrdenarFast
         public void MergeSort()
         {
             MergeSort(0, vetor.Length);
+        }
+        // //////////////////////////////////////////////////////
+        public void GravitySort()
+        {
+            int max = vetor.Max().Valor;
+            Array[] abacus;
+            int i;
+            int j;
+            int droppos;
+            int count;
+            int x;
+            int y;
+
+            abacus = new Array[vetor.Length];
+            for (i = 0; i < abacus.Length; i++)
+            {
+                abacus[i] = new int[max];
+            }
+            for (i = 0; i < vetor.Length; i++)
+            {
+                for (j = 0; j < vetor[i].Valor; j++)
+                {
+                    abacus[i].SetValue(1, abacus[0].Length - j - 1);
+                    externos++;
+
+                    l4.Text = "Escrita em vetores externos: " + externos.ToString();
+                    l4.Refresh();
+                }
+            }
+            for (i = 0; i < abacus[0].Length; i++)
+            {
+                for (j = 0; j < abacus.Length; j++)
+                {
+                    if ((int)abacus[j].GetValue(i) == 1)
+                    {
+                        droppos = j;
+                        while (droppos + 1 < abacus.Length && (int)abacus[droppos].GetValue(i) == 1)
+                        {
+                            droppos++;
+                        }
+                        if ((int)abacus[droppos].GetValue(i) == 0)
+                        {
+                            abacus[j].SetValue(0, i);
+                            abacus[droppos].SetValue(1, i);
+                            externos++;
+
+                            l4.Text = "Escrita em vetores externos: " + externos.ToString();
+                            l4.Refresh();
+                        }
+                    }
+                }
+                count = 0;
+                for (x = 0; x < abacus.Length; x++)
+                {
+                    count = 0;
+                    for (y = 0; y < abacus[0].Length; y++)
+                    {
+                        count += (int)abacus[x].GetValue(y);
+                    }
+                    vetor[x].Valor = count;
+                }
+            }
         }
         // //////////////////////////////////////////////////////
         private void SlowSort(int i, int j)

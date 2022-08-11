@@ -1,9 +1,6 @@
-using System.Windows.Forms;
-using System.Linq;
-
 namespace OrdenarFast
 {
-    public delegate void EscritaEventHandler(object sender,  EventArgs e);
+    public delegate void EscritaEventHandler(object sender, EventArgs e);
     public delegate void PopularEventHandler(object sender, EventArgs e);
 
     public partial class Form1 : Form
@@ -161,6 +158,10 @@ namespace OrdenarFast
 
                 case "PancakeSort":
                     algo.PancakeSort();
+                    break;
+
+                case "GravitySort":
+                    algo.GravitySort();
                     break;
 
                 default:

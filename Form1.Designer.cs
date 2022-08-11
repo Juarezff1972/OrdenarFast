@@ -183,6 +183,7 @@
             "CountingSort",
             "CycleSort",
             "GnomeSort",
+            "GravitySort",
             "HeapSort",
             "InsertSort",
             "InsertSort2",
