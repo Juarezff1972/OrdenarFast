@@ -46,6 +46,7 @@
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.mostrar = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -316,12 +317,25 @@
             this.textBox1.Size = new System.Drawing.Size(391, 355);
             this.textBox1.TabIndex = 40;
             // 
+            // mostrar
+            // 
+            this.mostrar.AutoSize = true;
+            this.mostrar.Checked = true;
+            this.mostrar.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.mostrar.Location = new System.Drawing.Point(415, 291);
+            this.mostrar.Name = "mostrar";
+            this.mostrar.Size = new System.Drawing.Size(134, 19);
+            this.mostrar.TabIndex = 41;
+            this.mostrar.Text = "Mostrar visualmente";
+            this.mostrar.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(600, 450);
+            this.Controls.Add(this.mostrar);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
@@ -368,5 +382,6 @@
         private NumericUpDown numericUpDown2;
         private Label label6;
         private TextBox textBox1;
+        private CheckBox mostrar;
     }
 }

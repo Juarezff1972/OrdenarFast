@@ -21,6 +21,8 @@
         private int externos;
         private ArrayItem[] vetor;
 
+        public bool mostrar;
+
         //public Algoritmos(System.Windows.Forms.PictureBox pic)
         //{
         //p = pic;
@@ -98,12 +100,16 @@
         private void ContaComparacao()
         {
             compar++;
-            l3.Text = "Comparações: " + compar.ToString();
-            if (compar % 100 == 0)
+            if (mostrar)
             {
-                l3.Refresh();
-                Dispara(new EventArgs());
+                l3.Text = "Comparações: " + compar.ToString();
+                if (compar % 100 == 0)
+                {
+                    l3.Refresh();
+                    Dispara(new EventArgs());
+                }
             }
+
         }
 
         private static int GreatestPowerOfTwoLessThan(int n)
@@ -120,8 +126,12 @@
         private void AdRecursao()
         {
             recursoes++;
-            l2.Text = "Recursões: " + recursoes.ToString();
-            l2.Refresh();
+            if (mostrar)
+            {
+                l2.Text = "Recursões: " + recursoes.ToString();
+                l2.Refresh();
+            }
+
         }
 
         public void SetVetor(ArrayItem[]? v)
@@ -454,7 +464,7 @@
             {
                 vetor[j].Valor = b[j];
             }
-            l4.Text = "Escrita em vetores externos: " + externos.ToString();
+            if (mostrar) l4.Text = "Escrita em vetores externos: " + externos.ToString();
             //l4.Refresh();
             //ChecaSegmentos();
         }
@@ -831,6 +841,7 @@
                 pigeonHoles[vetor[i].Valor - min]++;
                 externos++;
             }
+            if (mostrar) l4.Text = "Escrita em vetores externos: " + externos.ToString();
 
             index = 0;
 
@@ -841,6 +852,14 @@
                     externos++;
                     vetor[index++].Valor = j + min;
                 }
+                if (mostrar)
+                {
+                    l4.Text = "Escrita em vetores externos: " + externos.ToString();
+
+                    Application.DoEvents();
+                    Dispara(new EventArgs());
+                }
+
             }
             return;
         }
@@ -1210,7 +1229,7 @@
                     vetor[bkt[r]++].Valor = copy[i];
                 }
 
-                l4.Text = "Escrita em vetores externos: " + externos.ToString();
+                if (mostrar) l4.Text = "Escrita em vetores externos: " + externos.ToString();
                 //l4.Refresh();
             }
         }
@@ -1262,8 +1281,7 @@
                 }
             }
 
-            l4.Text = "Escrita em vetores externos: " + externos.ToString();
-            l4.Refresh();
+            if (mostrar) l4.Text = "Escrita em vetores externos: " + externos.ToString();
 
             // reorder items in-place by walking cycles
             for (int i = 0, j; i < (hi - lo);)
@@ -1316,7 +1334,6 @@
                         jMin = j;
                     }
                 }
-
 
                 Swap(i, jMin);
             }
@@ -1388,7 +1405,7 @@
             }
             externos++;
 
-            l4.Text = "Escrita em vetores externos: " + externos.ToString();
+            if (mostrar) l4.Text = "Escrita em vetores externos: " + externos.ToString();
             //l4.Refresh();
 
             // copy back
@@ -1441,10 +1458,9 @@
                 {
                     abacus[i].SetValue(1, abacus[0].Length - j - 1);
                     externos++;
-
-                    l4.Text = "Escrita em vetores externos: " + externos.ToString();
-                    l4.Refresh();
                 }
+
+                if (mostrar) l4.Text = "Escrita em vetores externos: " + externos.ToString();
             }
             for (i = 0; i < abacus[0].Length; i++)
             {
@@ -1462,12 +1478,12 @@
                             abacus[j].SetValue(0, i);
                             abacus[droppos].SetValue(1, i);
                             externos++;
-
-                            l4.Text = "Escrita em vetores externos: " + externos.ToString();
-                            l4.Refresh();
                         }
                     }
                 }
+
+                if (mostrar) l4.Text = "Escrita em vetores externos: " + externos.ToString();
+
                 count = 0;
                 for (x = 0; x < abacus.Length; x++)
                 {
@@ -1477,6 +1493,12 @@
                         count += (int)abacus[x].GetValue(y);
                     }
                     vetor[x].Valor = count;
+                }
+
+                if (mostrar)
+                {
+                    Application.DoEvents();
+                    Dispara(new EventArgs());
                 }
             }
         }
@@ -1531,7 +1553,7 @@
                 tmp[k] = vencedor(i, j);
                 externos++;
             }
-            l4.Text = "Escrita em vetores externos: " + externos.ToString();
+            if (mostrar) l4.Text = "Escrita em vetores externos: " + externos.ToString();
             valor = tmp[tmp[1]];
             tmp[tmp[1]] = int.MaxValue;
         }
@@ -1552,7 +1574,7 @@
             }
             valor = tmp[tmp[1]];
             tmp[tmp[1]] = int.MaxValue;
-            l4.Text = "Escrita em vetores externos: " + externos.ToString();
+            if (mostrar) l4.Text = "Escrita em vetores externos: " + externos.ToString();
         }
 
         public void tournamentSort()
@@ -1565,9 +1587,13 @@
             for (int i = 0; i < vetor.Length; i++)
             {
                 vetor[i].Valor = valor;
-                Application.DoEvents();
-                Dispara(new EventArgs());
+                if (mostrar)
+                {
+                    Application.DoEvents();
+                    Dispara(new EventArgs());
+                }
                 recriar(ref valor);
+
             }
         }
 
@@ -1605,14 +1631,14 @@
                 contagem[digitos]++;
                 externos++;
             }
-            l4.Text = "Escrita em vetores externos: " + externos.ToString();
+            if (mostrar) l4.Text = "Escrita em vetores externos: " + externos.ToString();
             offset[0] = inicio;
             for (int i = 1; i < NUMBER_OF_BUCKETS; i++)
             {
                 offset[i] = contagem[i - 1] + offset[i - 1];
                 externos++;
             }
-            l4.Text = "Escrita em vetores externos: " + externos.ToString();
+            if (mostrar) l4.Text = "Escrita em vetores externos: " + externos.ToString();
             //passo 2
             for (int b = 0; b < NUMBER_OF_BUCKETS; b++)
             {
@@ -1632,8 +1658,12 @@
                         num = temp;
                         fonte = destino;
                     } while (fonte != origem);
-                    Dispara(new EventArgs());
-                    Application.DoEvents();
+                    if (mostrar)
+                    {
+                        Dispara(new EventArgs());
+                        Application.DoEvents();
+                    }
+
                 }
             }
             if (divisor > 1)
@@ -1680,13 +1710,17 @@
                     vetor[index].Valor = --vetor[index].Valor;
                     aux[pointer] = ++aux[pointer];
                     externos++;
-                    if (pointer % fator ==0)
+                    if (mostrar)
                     {
-                        Dispara(new EventArgs());
-                        Application.DoEvents();
+                        if (pointer % fator == 0)
+                        {
+                            Dispara(new EventArgs());
+                            Application.DoEvents();
+                        }
                     }
+
                 }
-                l4.Text = "Escrita em vetores externos: " + externos.ToString();
+                if (mostrar) l4.Text = "Escrita em vetores externos: " + externos.ToString();
             }
             for (int mainPointer = vetor.Length - 1; mainPointer >= 0; mainPointer--)
             {
@@ -1696,13 +1730,17 @@
                     vetor[index].Valor = ++vetor[index].Valor;
                     aux[pointer] = --aux[pointer];
                     externos++;
-                    if (pointer % fator == 0)
+                    if (mostrar)
                     {
-                        Dispara(new EventArgs());
-                        Application.DoEvents();
+                        if (pointer % fator == 0)
+                        {
+                            Dispara(new EventArgs());
+                            Application.DoEvents();
+                        }
                     }
+
                 }
-                l4.Text = "Escrita em vetores externos: " + externos.ToString();
+                if (mostrar) l4.Text = "Escrita em vetores externos: " + externos.ToString();
             }
         }
         // //////////////////////////////////////////////////////

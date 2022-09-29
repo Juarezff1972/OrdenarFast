@@ -34,7 +34,7 @@ namespace OrdenarFast
         const string SHELLSORT = "ShellSort";
         const string SLOWSORT = "SlowSort";
         const string TOURNAMENTSORT = "TournamentSort";
-        const string AMERICANSORT = "AmericanSort";
+        const string AMERICANSORT = "AmericanFlagSort";
         const string SIMPLISTICGRAVITYSORT = "SimplisticGravitySort";
 
         private int escritas;
@@ -106,6 +106,8 @@ namespace OrdenarFast
             algo.SetQuickSortPivot(qsPivotSel1.Text);
             algo.LimpaTXT();
             algo.Populou += d1;
+
+            algo.mostrar = mostrar.Checked;
 
             button1.Enabled = false;
             button2.Enabled = false;
@@ -280,7 +282,7 @@ namespace OrdenarFast
 
         public virtual void OnPopular(object sender, EventArgs e)
         {
-            Popular();
+            if (mostrar.Checked) Popular();
         }
 
         private void button2_Click(object sender, EventArgs e)
