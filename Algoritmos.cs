@@ -273,7 +273,6 @@
                     {
                         Swap(j, j + 1);
                         Application.DoEvents();
-                        //Pausa();
                     }
                 }
             }
@@ -1531,9 +1530,8 @@
                 int j = i - 1;
                 tmp[k] = vencedor(i, j);
                 externos++;
-                piv2.Value = tmp[k];
-                Pausa();
             }
+            l4.Text = "Escrita em vetores externos: " + externos.ToString();
             valor = tmp[tmp[1]];
             tmp[tmp[1]] = int.MaxValue;
         }
@@ -1551,11 +1549,10 @@
                 tmp[k] = vencedor(i, j);
                 externos++;
                 i = k;
-                piv2.Value = tmp[k];
-                Pausa();
             }
             valor = tmp[tmp[1]];
             tmp[tmp[1]] = int.MaxValue;
+            l4.Text = "Escrita em vetores externos: " + externos.ToString();
         }
 
         public void tournamentSort()
@@ -1563,21 +1560,14 @@
             int valor = 0;
             int max = vetor.Length;
 
-            ChecaSegmentos();
-            piv1.Visible = true;
-            piv1.Maximum = max;
-            piv2.Visible = true;
-            piv2.Maximum = 2 * vetor.Length - 1;
-
             tmp = new int[vetor.Length << 1];
             criaArvore(ref valor);
             for (int i = 0; i < vetor.Length; i++)
             {
                 vetor[i].Valor = valor;
+                Application.DoEvents();
+                Dispara(new EventArgs());
                 recriar(ref valor);
-                ChecaSegmentos();
-                piv1.Value = i + 1;
-                Pausa();
             }
         }
 
@@ -1608,26 +1598,21 @@
             int[] offset = new int[NUMBER_OF_BUCKETS];
             int digitos = 0;
             //passo 1
-            piv1.Value = 1;
-            piv1.Maximum = tam;
             for (int i = inicio; i < tam; i++)
             {
                 int d = vetor[i].Valor;
                 digitos = Digitos(d, divisor);
                 contagem[digitos]++;
                 externos++;
-                piv1.Value = i + 1;
             }
+            l4.Text = "Escrita em vetores externos: " + externos.ToString();
             offset[0] = inicio;
-            piv2.Value = 1;
-            piv2.Maximum = NUMBER_OF_BUCKETS;
             for (int i = 1; i < NUMBER_OF_BUCKETS; i++)
             {
                 offset[i] = contagem[i - 1] + offset[i - 1];
                 externos++;
-                piv2.Value = i;
             }
-            ChecaSegmentos();
+            l4.Text = "Escrita em vetores externos: " + externos.ToString();
             //passo 2
             for (int b = 0; b < NUMBER_OF_BUCKETS; b++)
             {
@@ -1646,11 +1631,10 @@
                         vetor[destino].Valor = num;
                         num = temp;
                         fonte = destino;
-                        Pausa();
-                        ChecaSegmentos();
                     } while (fonte != origem);
+                    Dispara(new EventArgs());
+                    Application.DoEvents();
                 }
-                piv2.Value = b + 1;
             }
             if (divisor > 1)
             {
@@ -1665,8 +1649,6 @@
         }
         public void AmericanSort()
         {
-            piv1.Visible = true;
-            piv2.Visible = true;
             int digitos = MaximoDigitos();
             int max = 1;
             for (int i = 0; i < digitos - 1; i++)
@@ -1698,8 +1680,13 @@
                     vetor[index].Valor = --vetor[index].Valor;
                     aux[pointer] = ++aux[pointer];
                     externos++;
-                    if ((pointer % fator) == 0) Pausa();
+                    if (pointer % fator ==0)
+                    {
+                        Dispara(new EventArgs());
+                        Application.DoEvents();
+                    }
                 }
+                l4.Text = "Escrita em vetores externos: " + externos.ToString();
             }
             for (int mainPointer = vetor.Length - 1; mainPointer >= 0; mainPointer--)
             {
@@ -1709,8 +1696,13 @@
                     vetor[index].Valor = ++vetor[index].Valor;
                     aux[pointer] = --aux[pointer];
                     externos++;
-                    if ((pointer % fator) == 0) Pausa();
+                    if (pointer % fator == 0)
+                    {
+                        Dispara(new EventArgs());
+                        Application.DoEvents();
+                    }
                 }
+                l4.Text = "Escrita em vetores externos: " + externos.ToString();
             }
         }
         // //////////////////////////////////////////////////////
