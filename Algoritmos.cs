@@ -192,7 +192,7 @@
             logText = t;
             logText.Text = "Log";
         }*/
-
+        #region Algoritmos de Ordenação
         // //////////////////////////////////////////////////////
         public void BinaryInsertionSort()
         {
@@ -1436,6 +1436,36 @@
             MergeSort(0, vetor.Length);
         }
         // //////////////////////////////////////////////////////
+        private void SlowSort(int i, int j)
+        {
+            //ChecaSegmentos();
+            AdRecursao();
+            if (i >= j)
+            {
+                RmRecursao();
+                return;
+            }
+
+            int m = (i + j) / 2;
+
+            SlowSort(i, m);
+            SlowSort(m + 1, j);
+
+            ContaComparacao();
+            if (vetor[m].CompareTo(vetor[j]) == 1)
+            {
+                Swap(m, j);
+            }
+            SlowSort(i, j - 1);
+
+            RmRecursao();
+        }
+        public void SlowSort()
+        {
+            SlowSort(0, vetor.Length - 1);
+            //ChecaSegmentos();
+        }
+        // //////////////////////////////////////////////////////
         public void GravitySort()
         {
             int max = vetor.Max().Valor;
@@ -1503,36 +1533,7 @@
             }
         }
         // //////////////////////////////////////////////////////
-        private void SlowSort(int i, int j)
-        {
-            //ChecaSegmentos();
-            AdRecursao();
-            if (i >= j)
-            {
-                RmRecursao();
-                return;
-            }
-
-            int m = (i + j) / 2;
-
-            SlowSort(i, m);
-            SlowSort(m + 1, j);
-
-            ContaComparacao();
-            if (vetor[m].CompareTo(vetor[j]) == 1)
-            {
-                Swap(m, j);
-            }
-            SlowSort(i, j - 1);
-
-            RmRecursao();
-        }
-        public void SlowSort()
-        {
-            SlowSort(0, vetor.Length - 1);
-            //ChecaSegmentos();
-        }
-        // //////////////////////////////////////////////////////
+        
         private int[] tmp;
 
         private int vencedor(int pos1, int pos2)
@@ -1744,15 +1745,83 @@
             }
         }
         // //////////////////////////////////////////////////////
-
-        /*public ArrayItem ArrayItem
+        public void SandpaperSort()
         {
-            get => default;
-            set
+            for (int i = 0; i < vetor.Length - 1; i++)
             {
+                for (int j = i + 1; j < vetor.Length; j++)
+                {
+                    if (vetor[i].Valor > vetor[j].Valor)
+                    {
+                        Swap(i, j);
+                        //Pausa();
+                    }
+                    if (mostrar)
+                    {
+                        Dispara(new EventArgs());
+                        Application.DoEvents();
+                    }
+                }
             }
-        }*/
+        }
         // //////////////////////////////////////////////////////
 
+        public void DiamondSort()
+        {
+            int n = 1;
+            for (; n < vetor.Length; n *= 2) ;
+
+            int m = 4;
+            for (; m <= n; m *= 2)
+            {
+                for (int k = 0; k < m / 2; k++)
+                {
+                    int cnt = k <= m / 4 ? k : m / 2 - k;
+                    for (int j = 0; j < vetor.Length; j += m)
+                    {
+                        if (j + cnt + 1 < vetor.Length)
+                        {
+                            for (int i = j + cnt; i + 1 < Math.Min(vetor.Length, j + m - cnt); i += 2)
+                            {
+                                if (vetor[i].Valor > vetor[i + 1].Valor)
+                                {
+                                    Swap(i, i + 1);
+                                    //Pausa();
+                                }
+                            }
+                            if (mostrar)
+                            {
+                                Dispara(new EventArgs());
+                                Application.DoEvents();
+                            }
+                        }
+                    }
+                }
+            }
+            m /= 2;
+            for (int k = 0; k <= m / 2; k++)
+            {
+                for (int i = k; i + 1 < Math.Min(vetor.Length, m - k); i += 2)
+                {
+                    if (vetor[i].Valor > vetor[i + 1].Valor)
+                    {
+                        Swap(i, i + 1);
+                        //Pausa();
+                    }
+
+                }
+                if (mostrar)
+                {
+                    Dispara(new EventArgs());
+                    Application.DoEvents();
+                }
+            }
+        }
+        // //////////////////////////////////////////////////////
+        #endregion
+        public override string ToString()
+        {
+            return vetor.ToString();
+        }
     }
 }

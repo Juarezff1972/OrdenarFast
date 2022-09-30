@@ -36,6 +36,8 @@ namespace OrdenarFast
         const string TOURNAMENTSORT = "TournamentSort";
         const string AMERICANSORT = "AmericanFlagSort";
         const string SIMPLISTICGRAVITYSORT = "SimplisticGravitySort";
+        const string SANDPAPERSORT = "SandpaperSort";
+        const string DIAMONDSORT = "DiamondSort";
 
         private int escritas;
         private int[]? m_array;
@@ -48,47 +50,7 @@ namespace OrdenarFast
             ordem = 1;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            this.comboBox1.Items.Clear();
-            this.comboBox1.Items.Add(BINARYINSERTIONSORT);
-            this.comboBox1.Items.Add(BITONICSORT);
-            this.comboBox1.Items.Add(BUBBLESORT);
-            this.comboBox1.Items.Add(BUBBLESORT2);
-            this.comboBox1.Items.Add(BUBBLESORT3);
-            this.comboBox1.Items.Add(COCKTAILSHAKERSORT);
-            this.comboBox1.Items.Add(COMBSORT);
-            this.comboBox1.Items.Add(COUNTINGSORT);
-            this.comboBox1.Items.Add(CYCLESORT);
-            this.comboBox1.Items.Add(FLASHSORT);
-            this.comboBox1.Items.Add(GNOMESORT);
-            this.comboBox1.Items.Add(GRAVITYSORT);
-            this.comboBox1.Items.Add(HEAPSORT);
-            this.comboBox1.Items.Add(INSERTSORT);
-            this.comboBox1.Items.Add(INSERTSORT2);
-            this.comboBox1.Items.Add(MERGESORT);
-            this.comboBox1.Items.Add(ODDEVENSORT);
-            this.comboBox1.Items.Add(PANCAKESORT);
-            this.comboBox1.Items.Add(PIGEONHOLESORT);
-            this.comboBox1.Items.Add(QUICKSORTDUALPIVOT);
-            this.comboBox1.Items.Add(QUICKSORTLL);
-            this.comboBox1.Items.Add(QUICKSORTLR);
-            this.comboBox1.Items.Add(QUICKSORTTERNARYLR);
-            this.comboBox1.Items.Add(RADIXSORTLSD);
-            this.comboBox1.Items.Add(RADIXSORTMSD);
-            this.comboBox1.Items.Add(SELECTIONSORT);
-            this.comboBox1.Items.Add(SHELLSORT);
-            this.comboBox1.Items.Add(SLOWSORT);
-            this.comboBox1.Items.Add(TOURNAMENTSORT);
-            this.comboBox1.Items.Add(AMERICANSORT);
-            this.comboBox1.Items.Add(SIMPLISTICGRAVITYSORT);
-            this.comboBox1.Sorted = true;
-
-            this.FormBorderStyle = FormBorderStyle.Sizable;
-            Resetar();
-
-            comboBox1.SelectedIndex = 0;
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -252,6 +214,14 @@ namespace OrdenarFast
                     algo.SimplisticGravitySort();
                     break;
 
+                case SANDPAPERSORT:
+                    algo.SandpaperSort();
+                    break;
+
+                case DIAMONDSORT:
+                    algo.DiamondSort();
+                    break;
+
                 default:
                     break;
             }
@@ -311,6 +281,50 @@ namespace OrdenarFast
             label6.Text = "Escritas: " + escritas.ToString();
             //label6.Refresh();
             //Popular();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.comboBox1.Items.Clear();
+            this.comboBox1.Items.Add(BINARYINSERTIONSORT);
+            this.comboBox1.Items.Add(BITONICSORT);
+            this.comboBox1.Items.Add(BUBBLESORT);
+            this.comboBox1.Items.Add(BUBBLESORT2);
+            this.comboBox1.Items.Add(BUBBLESORT3);
+            this.comboBox1.Items.Add(COCKTAILSHAKERSORT);
+            this.comboBox1.Items.Add(COMBSORT);
+            this.comboBox1.Items.Add(COUNTINGSORT);
+            this.comboBox1.Items.Add(CYCLESORT);
+            this.comboBox1.Items.Add(FLASHSORT);
+            this.comboBox1.Items.Add(GNOMESORT);
+            this.comboBox1.Items.Add(GRAVITYSORT);
+            this.comboBox1.Items.Add(HEAPSORT);
+            this.comboBox1.Items.Add(INSERTSORT);
+            this.comboBox1.Items.Add(INSERTSORT2);
+            this.comboBox1.Items.Add(MERGESORT);
+            this.comboBox1.Items.Add(ODDEVENSORT);
+            this.comboBox1.Items.Add(PANCAKESORT);
+            this.comboBox1.Items.Add(PIGEONHOLESORT);
+            this.comboBox1.Items.Add(QUICKSORTDUALPIVOT);
+            this.comboBox1.Items.Add(QUICKSORTLL);
+            this.comboBox1.Items.Add(QUICKSORTLR);
+            this.comboBox1.Items.Add(QUICKSORTTERNARYLR);
+            this.comboBox1.Items.Add(RADIXSORTLSD);
+            this.comboBox1.Items.Add(RADIXSORTMSD);
+            this.comboBox1.Items.Add(SELECTIONSORT);
+            this.comboBox1.Items.Add(SHELLSORT);
+            this.comboBox1.Items.Add(SLOWSORT);
+            this.comboBox1.Items.Add(TOURNAMENTSORT);
+            this.comboBox1.Items.Add(AMERICANSORT);
+            this.comboBox1.Items.Add(SIMPLISTICGRAVITYSORT);
+            this.comboBox1.Items.Add(SANDPAPERSORT);
+            this.comboBox1.Items.Add(DIAMONDSORT);
+            this.comboBox1.Sorted = true;
+
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            Resetar();
+
+            comboBox1.SelectedIndex = 0;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
