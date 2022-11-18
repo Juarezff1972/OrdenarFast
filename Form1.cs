@@ -267,10 +267,132 @@ namespace OrdenarFast
             qsPivotSel1.Visible = false;
             if (x != null)
             {
+                algoTxt.Text = "Ainda não implementado";
+                if (x==BINARYINSERTIONSORT)
+                {
+                    algoTxt.Text = Resource1.BinaryInsertionSortString;
+                }
+                if (x==BITONICSORT)
+                {
+                    algoTxt.Text = Resource1.BitonicSortString;
+                }
+                if (x==BUBBLESORT)
+                {
+                    algoTxt.Text = Resource1.BubbleSortString;
+                }
+                if (x == BUBBLESORT2)
+                {
+                    algoTxt.Text = Resource1.BubbleSort2String;
+                }
+                if (x == BUBBLESORT3)
+                {
+                    algoTxt.Text = Resource1.BubbleSort3String;
+                }
+                if (x==COCKTAILSHAKERSORT)
+                {
+                    algoTxt.Text = Resource1.CocktailShakerSortString;
+                }
+                if (x == COMBSORT)
+                {
+                    algoTxt.Text = Resource1.CombSortString;
+                }
+                if (x == COUNTINGSORT)
+                {
+                    algoTxt.Text = Resource1.CountingSortString;
+                }
+                if (x == CYCLESORT)
+                {
+                    algoTxt.Text = Resource1.CycleSortString;
+                }
+                if (x == FLASHSORT)
+                {
+                    algoTxt.Text = Resource1.FlashSortString;
+                }
+                if (x==AMERICANSORT)
+                {
+                    algoTxt.Text = Resource1.AmericanSortString;
+                }
+                if (x == GNOMESORT)
+                {
+                    algoTxt.Text = Resource1.GnomeSortString;
+                }
+                if (x == GRAVITYSORT)
+                {
+                    algoTxt.Text = Resource1.GravitySortString;
+                }
+                if (x == HEAPSORT)
+                {
+                    algoTxt.Text = Resource1.HeapSortString;
+                }
+                if (x == INSERTSORT)
+                {
+                    algoTxt.Text = Resource1.InsertSortString;
+                }
+                if (x == INSERTSORT2)
+                {
+                    algoTxt.Text = Resource1.InsertSort2String;
+                }
+                if (x == MERGESORT)
+                {
+                    algoTxt.Text = Resource1.MergeSortString;
+                }
+                if (x == ODDEVENSORT)
+                {
+                    algoTxt.Text = Resource1.OddEvenSortString;
+                }
+                if (x == PANCAKESORT)
+                {
+                    algoTxt.Text = Resource1.PancakeSortString;
+                }
+                if (x == PIGEONHOLESORT)
+                {
+                    algoTxt.Text = Resource1.PigeonHoleSortString;
+                }
                 if (x.StartsWith("Quick"))
                 {
                     qsPivotSel1.Visible = true;
                     qsPivotSel1.SelectedIndex = 0;
+                    algoTxt.Text = Resource1.QuickSortString;
+                }
+                if (x == COCKTAILSHAKERSORT)
+                {
+                    algoTxt.Text = Resource1.CocktailShakerSortString;
+                }
+                if (x == RADIXSORTLSD)
+                {
+                    algoTxt.Text = Resource1.RadixSortLSDString;
+                }
+                if (x == RADIXSORTMSD)
+                {
+                    algoTxt.Text = Resource1.RadixSortMSDString;
+                }
+                if (x == SELECTIONSORT)
+                {
+                    algoTxt.Text = Resource1.SelectionSortString;
+                }
+                if (x == SHELLSORT)
+                {
+                    algoTxt.Text = Resource1.ShellSortString;
+                }
+                if (x == SANDPAPERSORT)
+                {
+                    algoTxt.Text = Resource1.SandpaperSortString;
+                }
+                if (x == SIMPLISTICGRAVITYSORT)
+                {
+                    algoTxt.Text = Resource1.SimplisticGravitySortString;
+                }
+                if (x == SLOWSORT)
+                {
+                    algoTxt.Text = Resource1.SlowSortString;
+                }
+                if (x == TOURNAMENTSORT)
+                {
+                    algoTxt.Text = Resource1.TournamentSortString;
+                }
+                if (x == DIAMONDSORT)
+                {
+                    algoTxt.Text = Resource1.DiamondSortString;
                 }
             }
         }
@@ -401,6 +523,11 @@ namespace OrdenarFast
             label6.Refresh();
 
             ArrayItem? zzz = vetor.Max();
+        }
+
+        private void algoTxt_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

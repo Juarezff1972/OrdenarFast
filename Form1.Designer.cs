@@ -47,6 +47,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.mostrar = new System.Windows.Forms.CheckBox();
+            this.algoTxt = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +59,7 @@
             this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(412, 152);
+            this.groupBox1.Location = new System.Drawing.Point(867, 152);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -134,7 +135,7 @@
             "Médio",
             "Aleatório",
             "Mediana"});
-            this.qsPivotSel1.Location = new System.Drawing.Point(422, 74);
+            this.qsPivotSel1.Location = new System.Drawing.Point(877, 74);
             this.qsPivotSel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.qsPivotSel1.Name = "qsPivotSel1";
             this.qsPivotSel1.Size = new System.Drawing.Size(133, 23);
@@ -145,7 +146,7 @@
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button2.Location = new System.Drawing.Point(472, 126);
+            this.button2.Location = new System.Drawing.Point(927, 126);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(82, 22);
@@ -158,7 +159,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(472, 100);
+            this.button1.Location = new System.Drawing.Point(927, 100);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 22);
@@ -202,7 +203,7 @@
             "SelectionSort",
             "ShellSort",
             "SlowSort"});
-            this.comboBox1.Location = new System.Drawing.Point(422, 49);
+            this.comboBox1.Location = new System.Drawing.Point(877, 49);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(133, 23);
@@ -215,7 +216,7 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(405, 387);
+            this.label10.Location = new System.Drawing.Point(860, 387);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(162, 15);
             this.label10.TabIndex = 38;
@@ -226,7 +227,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(405, 417);
+            this.label7.Location = new System.Drawing.Point(860, 417);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 15);
             this.label7.TabIndex = 37;
@@ -267,7 +268,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(422, 13);
+            this.label2.Location = new System.Drawing.Point(877, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 15);
             this.label2.TabIndex = 32;
@@ -277,7 +278,7 @@
             // 
             this.numericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown2.BackColor = System.Drawing.Color.DarkGray;
-            this.numericUpDown2.Location = new System.Drawing.Point(479, 11);
+            this.numericUpDown2.Location = new System.Drawing.Point(934, 11);
             this.numericUpDown2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             10000,
@@ -319,22 +320,38 @@
             // 
             // mostrar
             // 
+            this.mostrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.mostrar.AutoSize = true;
             this.mostrar.Checked = true;
             this.mostrar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.mostrar.Location = new System.Drawing.Point(415, 291);
+            this.mostrar.Location = new System.Drawing.Point(865, 291);
             this.mostrar.Name = "mostrar";
             this.mostrar.Size = new System.Drawing.Size(134, 19);
             this.mostrar.TabIndex = 41;
             this.mostrar.Text = "Mostrar visualmente";
             this.mostrar.UseVisualStyleBackColor = true;
             // 
+            // algoTxt
+            // 
+            this.algoTxt.AcceptsReturn = true;
+            this.algoTxt.AcceptsTab = true;
+            this.algoTxt.Location = new System.Drawing.Point(410, 9);
+            this.algoTxt.Multiline = true;
+            this.algoTxt.Name = "algoTxt";
+            this.algoTxt.ReadOnly = true;
+            this.algoTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.algoTxt.Size = new System.Drawing.Size(426, 355);
+            this.algoTxt.TabIndex = 42;
+            this.algoTxt.WordWrap = false;
+            this.algoTxt.TextChanged += new System.EventHandler(this.algoTxt_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(600, 450);
+            this.ClientSize = new System.Drawing.Size(1055, 450);
+            this.Controls.Add(this.algoTxt);
             this.Controls.Add(this.mostrar);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label6);
@@ -383,5 +400,6 @@
         private Label label6;
         private TextBox textBox1;
         private CheckBox mostrar;
+        private TextBox algoTxt;
     }
 }
