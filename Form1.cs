@@ -354,10 +354,6 @@ namespace OrdenarFast
                     qsPivotSel1.SelectedIndex = 0;
                     algoTxt.Text = Resource1.QuickSortString;
                 }
-                if (x == COCKTAILSHAKERSORT)
-                {
-                    algoTxt.Text = Resource1.CocktailShakerSortString;
-                }
                 if (x == RADIXSORTLSD)
                 {
                     algoTxt.Text = Resource1.RadixSortLSDString;
